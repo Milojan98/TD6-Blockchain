@@ -1,0 +1,2627 @@
+{
+  "contractName": "AnimalLand",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "AddedToBreederList",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "animalId",
+          "type": "uint256"
+        }
+      ],
+      "name": "BurnAnimal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "animalId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "tipe",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "NewAnimal",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "RemovedFromBreederList",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "animalToOwner",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "animals",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "animalId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "tipe",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "sexe",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "color",
+          "type": "string"
+        },
+        {
+          "internalType": "uint8",
+          "name": "nb_paws",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_breeder",
+          "type": "address"
+        }
+      ],
+      "name": "isABreeder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_breeder",
+          "type": "address"
+        }
+      ],
+      "name": "registerBreeder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_breeder",
+          "type": "address"
+        }
+      ],
+      "name": "removeBreeder",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AddedToBreederList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"animalId\",\"type\":\"uint256\"}],\"name\":\"BurnAnimal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"animalId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tipe\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"NewAnimal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"RemovedFromBreederList\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"animalToOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"animals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"animalId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"tipe\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"sexe\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"color\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"nb_paws\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_breeder\",\"type\":\"address\"}],\"name\":\"isABreeder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_breeder\",\"type\":\"address\"}],\"name\":\"registerBreeder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_breeder\",\"type\":\"address\"}],\"name\":\"removeBreeder\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"isABreeder(address)\":{\"notice\":\"Check if an address is in the breeder list.\"},\"registerBreeder(address)\":{\"notice\":\"Add an address in the breeder list. \"},\"removeBreeder(address)\":{\"notice\":\"Remove an address from the breeder list. \"}}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Miloj/TD6-Blockchain/contracts/AnimalLand.sol\":\"AnimalLand\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Miloj/TD6-Blockchain/contracts/AnimalLand.sol\":{\"keccak256\":\"0xdd0bf73b76c9859c63012df9837516b876a1708b8e7692b1439275b33d84b002\",\"urls\":[\"bzz-raw://dac53847636635f10436013de87216226f68afe29fcb8e09187c7439964fed2c\",\"dweb:/ipfs/QmQ1NRBiBWsLNjRcuAHKNbUnb2kPwJg1sviq9pNn7htECn\"]},\"/C/Users/Miloj/TD6-Blockchain/contracts/Breeder.sol\":{\"keccak256\":\"0x721779b4d6b7e11e835df7353f5214db436f2a99710eb562eee2d07917f57f09\",\"urls\":[\"bzz-raw://af6aa4bbdda0c434cacb15b8a654d147d48f9e0597e8afdcf69d0aa58bdf67f5\",\"dweb:/ipfs/QmYYn3kuu6Ks7YufNDZ5aiPdwpc3jCZynDVcicPVGtp4ce\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610912806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806346456c661461005c578063476fd474146100a0578063998dd3ca146100e4578063c4f73852146102e3578063d81c513a1461033f575b600080fd5b61009e6004803603602081101561007257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103ad565b005b6100e2600480360360208110156100b657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104a6565b005b610110600480360360208110156100fa57600080fd5b810190808035906020019092919050505061059f565b60405180878152602001806020018060200180602001806020018660ff1660ff16815260200185810385528a818151815260200191508051906020019080838360005b8381101561016e578082015181840152602081019050610153565b50505050905090810190601f16801561019b5780820380516001836020036101000a031916815260200191505b50858103845289818151815260200191508051906020019080838360005b838110156101d45780820151818401526020810190506101b9565b50505050905090810190601f1680156102015780820380516001836020036101000a031916815260200191505b50858103835288818151815260200191508051906020019080838360005b8381101561023a57808201518184015260208101905061021f565b50505050905090810190601f1680156102675780820380516001836020036101000a031916815260200191505b50858103825287818151815260200191508051906020019080838360005b838110156102a0578082015181840152602081019050610285565b50505050905090810190601f1680156102cd5780820380516001836020036101000a031916815260200191505b509a505050505050505050505060405180910390f35b610325600480360360208110156102f957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610855565b604051808215151515815260200191505060405180910390f35b61036b6004803603602081101561035557600080fd5b81019080803590602001909291905050506108aa565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600115156000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615151461040957600080fd5b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167f938ef794f4afe55be567004bfe9ac18c6eb39aa9a923ac272d379b8e0b18863a60405160405180910390a250565b600015156000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615151461050257600080fd5b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fc1448f5e2e05cea974ecfedd2f801913739f5ddb6aaf7e34af16e54ba5df2b4660405160405180910390a250565b600381815481106105ac57fe5b9060005260206000209060060201600091509050806000015490806001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561065e5780601f106106335761010080835404028352916020019161065e565b820191906000526020600020905b81548152906001019060200180831161064157829003601f168201915b505050505090806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106fc5780601f106106d1576101008083540402835291602001916106fc565b820191906000526020600020905b8154815290600101906020018083116106df57829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561079a5780601f1061076f5761010080835404028352916020019161079a565b820191906000526020600020905b81548152906001019060200180831161077d57829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108385780601f1061080d57610100808354040283529160200191610838565b820191906000526020600020905b81548152906001019060200180831161081b57829003601f168201915b5050505050908060050160009054906101000a900460ff16905086565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158206207148d4a21091d2ee04f293746fb2d642afe4a62339958274419a0f338b99f64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806346456c661461005c578063476fd474146100a0578063998dd3ca146100e4578063c4f73852146102e3578063d81c513a1461033f575b600080fd5b61009e6004803603602081101561007257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103ad565b005b6100e2600480360360208110156100b657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506104a6565b005b610110600480360360208110156100fa57600080fd5b810190808035906020019092919050505061059f565b60405180878152602001806020018060200180602001806020018660ff1660ff16815260200185810385528a818151815260200191508051906020019080838360005b8381101561016e578082015181840152602081019050610153565b50505050905090810190601f16801561019b5780820380516001836020036101000a031916815260200191505b50858103845289818151815260200191508051906020019080838360005b838110156101d45780820151818401526020810190506101b9565b50505050905090810190601f1680156102015780820380516001836020036101000a031916815260200191505b50858103835288818151815260200191508051906020019080838360005b8381101561023a57808201518184015260208101905061021f565b50505050905090810190601f1680156102675780820380516001836020036101000a031916815260200191505b50858103825287818151815260200191508051906020019080838360005b838110156102a0578082015181840152602081019050610285565b50505050905090810190601f1680156102cd5780820380516001836020036101000a031916815260200191505b509a505050505050505050505060405180910390f35b610325600480360360208110156102f957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610855565b604051808215151515815260200191505060405180910390f35b61036b6004803603602081101561035557600080fd5b81019080803590602001909291905050506108aa565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600115156000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615151461040957600080fd5b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167f938ef794f4afe55be567004bfe9ac18c6eb39aa9a923ac272d379b8e0b18863a60405160405180910390a250565b600015156000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615151461050257600080fd5b60016000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff167fc1448f5e2e05cea974ecfedd2f801913739f5ddb6aaf7e34af16e54ba5df2b4660405160405180910390a250565b600381815481106105ac57fe5b9060005260206000209060060201600091509050806000015490806001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561065e5780601f106106335761010080835404028352916020019161065e565b820191906000526020600020905b81548152906001019060200180831161064157829003601f168201915b505050505090806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156106fc5780601f106106d1576101008083540402835291602001916106fc565b820191906000526020600020905b8154815290600101906020018083116106df57829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561079a5780601f1061076f5761010080835404028352916020019161079a565b820191906000526020600020905b81548152906001019060200180831161077d57829003601f168201915b505050505090806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108385780601f1061080d57610100808354040283529160200191610838565b820191906000526020600020905b81548152906001019060200180831161081b57829003601f168201915b5050505050908060050160009054906101000a900460ff16905086565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff169050919050565b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158206207148d4a21091d2ee04f293746fb2d642afe4a62339958274419a0f338b99f64736f6c63430005100032",
+  "sourceMap": "63:995:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;63:995:1;;;;;;;",
+  "deployedSourceMap": "63:995:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;63:995:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;650:190:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;650:190:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;391:186;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;391:186:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;321:23:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;321:23:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;321:23:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;321:23:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;321:23:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;321:23:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;916:110:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;916:110:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;209:54:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;209:54:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;650:190:3;739:4;716:27;;:11;:21;728:8;716:21;;;;;;;;;;;;;;;;;;;;;;;;;:27;;;708:36;;;;;;779:5;755:11;:21;767:8;755:21;;;;;;;;;;;;;;;;:29;;;;;;;;;;;;;;;;;;823:8;800:32;;;;;;;;;;;;650:190;:::o;391:186::-;482:5;459:28;;:11;:21;471:8;459:21;;;;;;;;;;;;;;;;;;;;;;;;;:28;;;451:37;;;;;;521:4;499:11;:21;511:8;499:21;;;;;;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;560:8;541:28;;;;;;;;;;;;391:186;:::o;321:23:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;916:110:3:-;974:4;997:11;:21;1009:8;997:21;;;;;;;;;;;;;;;;;;;;;;;;;990:28;;916:110;;;:::o;209:54:1:-;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.25 <0.7.0;\r\n\r\nimport \"./Breeder.sol\";\r\n\r\ncontract AnimalLand is Breeder{\r\n\r\n    event NewAnimal(uint256 animalId,string tipe,string name);\r\n    event BurnAnimal(uint256 animalId);\r\n\r\n    mapping (uint => address payable) public animalToOwner;\r\n    mapping (address => uint) ownerAnimalCount;\r\n\r\n    Animal[] public animals;     //Listed all Animals created.\r\n\r\n    struct Animal{\r\n        uint256 animalId;\r\n        string tipe;    //type(cat,dog,cow...)\r\n        string sexe;\r\n        string name;\r\n        string color;\r\n        uint8 nb_paws;\r\n\r\n    }\r\n\r\n    /*\r\n    **Declare your animal.\r\n    */\r\n\r\n    function declareAnimal(string memory _tipe, string memory _sexe, string memory _name,string memory _color,uint8 _nb_paws ) \r\n    internal OnlyBreederListed(){\r\n\r\n        uint256 animalId=animals.length;\r\n        animals.push(Animal(animalId,_tipe,_sexe,_name,_color,_nb_paws));\r\n        animalToOwner[animalId] = msg.sender;\r\n        ownerAnimalCount[msg.sender]++;\r\n        emit NewAnimal(animalId, _tipe ,_name);\r\n    }\r\n\r\n\r\n}",
+  "sourcePath": "C:\\Users\\Miloj\\TD6-Blockchain\\contracts\\AnimalLand.sol",
+  "ast": {
+    "absolutePath": "/C/Users/Miloj/TD6-Blockchain/contracts/AnimalLand.sol",
+    "exportedSymbols": {
+      "AnimalLand": [
+        258
+      ]
+    },
+    "id": 259,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 165,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "/C/Users/Miloj/TD6-Blockchain/contracts/Breeder.sol",
+        "file": "./Breeder.sol",
+        "id": 166,
+        "nodeType": "ImportDirective",
+        "scope": 259,
+        "sourceUnit": 547,
+        "src": "36:23:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 167,
+              "name": "Breeder",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 546,
+              "src": "86:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Breeder_$546",
+                "typeString": "contract Breeder"
+              }
+            },
+            "id": 168,
+            "nodeType": "InheritanceSpecifier",
+            "src": "86:7:1"
+          }
+        ],
+        "contractDependencies": [
+          546
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 258,
+        "linearizedBaseContracts": [
+          258,
+          546
+        ],
+        "name": "AnimalLand",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 176,
+            "name": "NewAnimal",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 170,
+                  "indexed": false,
+                  "name": "animalId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "118:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "118:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 172,
+                  "indexed": false,
+                  "name": "tipe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "135:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "135:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 174,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "147:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 173,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "117:42:1"
+            },
+            "src": "102:58:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 180,
+            "name": "BurnAnimal",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 178,
+                  "indexed": false,
+                  "name": "animalId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 180,
+                  "src": "183:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 177,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "182:18:1"
+            },
+            "src": "166:35:1"
+          },
+          {
+            "constant": false,
+            "id": 184,
+            "name": "animalToOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "209:54:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+              "typeString": "mapping(uint256 => address payable)"
+            },
+            "typeName": {
+              "id": 183,
+              "keyType": {
+                "id": 181,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "218:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "209:33:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+                "typeString": "mapping(uint256 => address payable)"
+              },
+              "valueType": {
+                "id": 182,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "226:15:1",
+                "stateMutability": "payable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 188,
+            "name": "ownerAnimalCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "270:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 187,
+              "keyType": {
+                "id": 185,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "279:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "270:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 186,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "290:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 191,
+            "name": "animals",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "321:23:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+              "typeString": "struct AnimalLand.Animal[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 189,
+                "name": "Animal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 204,
+                "src": "321:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Animal_$204_storage_ptr",
+                  "typeString": "struct AnimalLand.Animal"
+                }
+              },
+              "id": 190,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "321:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage_ptr",
+                "typeString": "struct AnimalLand.Animal[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "AnimalLand.Animal",
+            "id": 204,
+            "members": [
+              {
+                "constant": false,
+                "id": 193,
+                "name": "animalId",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "411:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 192,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "411:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 195,
+                "name": "tipe",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "438:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 194,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "438:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 197,
+                "name": "sexe",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "486:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 196,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "486:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 199,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "508:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 198,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "508:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 201,
+                "name": "color",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "530:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 200,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 203,
+                "name": "nb_paws",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "553:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 202,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Animal",
+            "nodeType": "StructDefinition",
+            "scope": 258,
+            "src": "387:189:1",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 256,
+              "nodeType": "Block",
+              "src": "787:264:1",
+              "statements": [
+                {
+                  "assignments": [
+                    220
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 220,
+                      "name": "animalId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 256,
+                      "src": "800:16:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 219,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "800:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 223,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 221,
+                      "name": "animals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 191,
+                      "src": "817:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+                        "typeString": "struct AnimalLand.Animal storage ref[] storage ref"
+                      }
+                    },
+                    "id": 222,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "817:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "800:31:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 228,
+                            "name": "animalId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 220,
+                            "src": "862:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 229,
+                            "name": "_tipe",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 206,
+                            "src": "871:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 230,
+                            "name": "_sexe",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 208,
+                            "src": "877:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 231,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 210,
+                            "src": "883:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 232,
+                            "name": "_color",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 212,
+                            "src": "889:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 233,
+                            "name": "_nb_paws",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 214,
+                            "src": "896:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          ],
+                          "id": 227,
+                          "name": "Animal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 204,
+                          "src": "855:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Animal_$204_storage_ptr_$",
+                            "typeString": "type(struct AnimalLand.Animal storage pointer)"
+                          }
+                        },
+                        "id": 234,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "855:50:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Animal_$204_memory",
+                          "typeString": "struct AnimalLand.Animal memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Animal_$204_memory",
+                          "typeString": "struct AnimalLand.Animal memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 224,
+                        "name": "animals",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 191,
+                        "src": "842:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+                          "typeString": "struct AnimalLand.Animal storage ref[] storage ref"
+                        }
+                      },
+                      "id": 226,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "842:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Animal_$204_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct AnimalLand.Animal storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 235,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "842:64:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 236,
+                  "nodeType": "ExpressionStatement",
+                  "src": "842:64:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 242,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 237,
+                        "name": "animalToOwner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 184,
+                        "src": "917:13:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+                          "typeString": "mapping(uint256 => address payable)"
+                        }
+                      },
+                      "id": 239,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 238,
+                        "name": "animalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 220,
+                        "src": "931:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "917:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 240,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1025,
+                        "src": "943:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 241,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "943:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "917:36:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 243,
+                  "nodeType": "ExpressionStatement",
+                  "src": "917:36:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 248,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "964:30:1",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 244,
+                        "name": "ownerAnimalCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 188,
+                        "src": "964:16:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 247,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 245,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1025,
+                          "src": "981:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 246,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "981:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "964:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 249,
+                  "nodeType": "ExpressionStatement",
+                  "src": "964:30:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 251,
+                        "name": "animalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 220,
+                        "src": "1020:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 252,
+                        "name": "_tipe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 206,
+                        "src": "1030:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 253,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 210,
+                        "src": "1037:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 250,
+                      "name": "NewAnimal",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 176,
+                      "src": "1010:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (uint256,string memory,string memory)"
+                      }
+                    },
+                    "id": 254,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1010:33:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 255,
+                  "nodeType": "EmitStatement",
+                  "src": "1005:38:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 257,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 217,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 216,
+                  "name": "OnlyBreederListed",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 485,
+                  "src": "768:17:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "768:19:1"
+              }
+            ],
+            "name": "declareAnimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 206,
+                  "name": "_tipe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "653:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 205,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "653:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 208,
+                  "name": "_sexe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "674:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 207,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "674:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 210,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "695:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 209,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "695:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 212,
+                  "name": "_color",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "715:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 211,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "715:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 214,
+                  "name": "_nb_paws",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "736:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 213,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "736:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "652:100:1"
+            },
+            "returnParameters": {
+              "id": 218,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "787:0:1"
+            },
+            "scope": 258,
+            "src": "630:421:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 259,
+        "src": "63:995:1"
+      }
+    ],
+    "src": "0:1058:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/Miloj/TD6-Blockchain/contracts/AnimalLand.sol",
+    "exportedSymbols": {
+      "AnimalLand": [
+        258
+      ]
+    },
+    "id": 259,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 165,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "/C/Users/Miloj/TD6-Blockchain/contracts/Breeder.sol",
+        "file": "./Breeder.sol",
+        "id": 166,
+        "nodeType": "ImportDirective",
+        "scope": 259,
+        "sourceUnit": 547,
+        "src": "36:23:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 167,
+              "name": "Breeder",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 546,
+              "src": "86:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Breeder_$546",
+                "typeString": "contract Breeder"
+              }
+            },
+            "id": 168,
+            "nodeType": "InheritanceSpecifier",
+            "src": "86:7:1"
+          }
+        ],
+        "contractDependencies": [
+          546
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 258,
+        "linearizedBaseContracts": [
+          258,
+          546
+        ],
+        "name": "AnimalLand",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 176,
+            "name": "NewAnimal",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 170,
+                  "indexed": false,
+                  "name": "animalId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "118:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "118:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 172,
+                  "indexed": false,
+                  "name": "tipe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "135:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "135:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 174,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 176,
+                  "src": "147:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 173,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "117:42:1"
+            },
+            "src": "102:58:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 180,
+            "name": "BurnAnimal",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 178,
+                  "indexed": false,
+                  "name": "animalId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 180,
+                  "src": "183:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 177,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "183:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "182:18:1"
+            },
+            "src": "166:35:1"
+          },
+          {
+            "constant": false,
+            "id": 184,
+            "name": "animalToOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "209:54:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+              "typeString": "mapping(uint256 => address payable)"
+            },
+            "typeName": {
+              "id": 183,
+              "keyType": {
+                "id": 181,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "218:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "209:33:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+                "typeString": "mapping(uint256 => address payable)"
+              },
+              "valueType": {
+                "id": 182,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "226:15:1",
+                "stateMutability": "payable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 188,
+            "name": "ownerAnimalCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "270:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 187,
+              "keyType": {
+                "id": 185,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "279:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "270:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 186,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "290:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 191,
+            "name": "animals",
+            "nodeType": "VariableDeclaration",
+            "scope": 258,
+            "src": "321:23:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+              "typeString": "struct AnimalLand.Animal[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 189,
+                "name": "Animal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 204,
+                "src": "321:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Animal_$204_storage_ptr",
+                  "typeString": "struct AnimalLand.Animal"
+                }
+              },
+              "id": 190,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "321:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage_ptr",
+                "typeString": "struct AnimalLand.Animal[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "AnimalLand.Animal",
+            "id": 204,
+            "members": [
+              {
+                "constant": false,
+                "id": 193,
+                "name": "animalId",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "411:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 192,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "411:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 195,
+                "name": "tipe",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "438:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 194,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "438:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 197,
+                "name": "sexe",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "486:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 196,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "486:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 199,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "508:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 198,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "508:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 201,
+                "name": "color",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "530:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 200,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 203,
+                "name": "nb_paws",
+                "nodeType": "VariableDeclaration",
+                "scope": 204,
+                "src": "553:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 202,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "553:5:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Animal",
+            "nodeType": "StructDefinition",
+            "scope": 258,
+            "src": "387:189:1",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 256,
+              "nodeType": "Block",
+              "src": "787:264:1",
+              "statements": [
+                {
+                  "assignments": [
+                    220
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 220,
+                      "name": "animalId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 256,
+                      "src": "800:16:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 219,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "800:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 223,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 221,
+                      "name": "animals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 191,
+                      "src": "817:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+                        "typeString": "struct AnimalLand.Animal storage ref[] storage ref"
+                      }
+                    },
+                    "id": 222,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "817:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "800:31:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 228,
+                            "name": "animalId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 220,
+                            "src": "862:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 229,
+                            "name": "_tipe",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 206,
+                            "src": "871:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 230,
+                            "name": "_sexe",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 208,
+                            "src": "877:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 231,
+                            "name": "_name",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 210,
+                            "src": "883:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 232,
+                            "name": "_color",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 212,
+                            "src": "889:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 233,
+                            "name": "_nb_paws",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 214,
+                            "src": "896:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_uint8",
+                              "typeString": "uint8"
+                            }
+                          ],
+                          "id": 227,
+                          "name": "Animal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 204,
+                          "src": "855:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Animal_$204_storage_ptr_$",
+                            "typeString": "type(struct AnimalLand.Animal storage pointer)"
+                          }
+                        },
+                        "id": 234,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "855:50:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Animal_$204_memory",
+                          "typeString": "struct AnimalLand.Animal memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Animal_$204_memory",
+                          "typeString": "struct AnimalLand.Animal memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 224,
+                        "name": "animals",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 191,
+                        "src": "842:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Animal_$204_storage_$dyn_storage",
+                          "typeString": "struct AnimalLand.Animal storage ref[] storage ref"
+                        }
+                      },
+                      "id": 226,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "842:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Animal_$204_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct AnimalLand.Animal storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 235,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "842:64:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 236,
+                  "nodeType": "ExpressionStatement",
+                  "src": "842:64:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 242,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 237,
+                        "name": "animalToOwner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 184,
+                        "src": "917:13:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_address_payable_$",
+                          "typeString": "mapping(uint256 => address payable)"
+                        }
+                      },
+                      "id": 239,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 238,
+                        "name": "animalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 220,
+                        "src": "931:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "917:23:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 240,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1025,
+                        "src": "943:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 241,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "943:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "917:36:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 243,
+                  "nodeType": "ExpressionStatement",
+                  "src": "917:36:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 248,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "964:30:1",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 244,
+                        "name": "ownerAnimalCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 188,
+                        "src": "964:16:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 247,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 245,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1025,
+                          "src": "981:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 246,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "981:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "964:28:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 249,
+                  "nodeType": "ExpressionStatement",
+                  "src": "964:30:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 251,
+                        "name": "animalId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 220,
+                        "src": "1020:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 252,
+                        "name": "_tipe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 206,
+                        "src": "1030:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 253,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 210,
+                        "src": "1037:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 250,
+                      "name": "NewAnimal",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 176,
+                      "src": "1010:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (uint256,string memory,string memory)"
+                      }
+                    },
+                    "id": 254,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1010:33:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 255,
+                  "nodeType": "EmitStatement",
+                  "src": "1005:38:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 257,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 217,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 216,
+                  "name": "OnlyBreederListed",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 485,
+                  "src": "768:17:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "768:19:1"
+              }
+            ],
+            "name": "declareAnimal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 206,
+                  "name": "_tipe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "653:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 205,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "653:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 208,
+                  "name": "_sexe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "674:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 207,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "674:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 210,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "695:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 209,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "695:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 212,
+                  "name": "_color",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "715:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 211,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "715:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 214,
+                  "name": "_nb_paws",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 257,
+                  "src": "736:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 213,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "736:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "652:100:1"
+            },
+            "returnParameters": {
+              "id": 218,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "787:0:1"
+            },
+            "scope": 258,
+            "src": "630:421:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 259,
+        "src": "63:995:1"
+      }
+    ],
+    "src": "0:1058:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-03-10T09:31:42.280Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {
+      "isABreeder(address)": {
+        "notice": "Check if an address is in the breeder list."
+      },
+      "registerBreeder(address)": {
+        "notice": "Add an address in the breeder list. "
+      },
+      "removeBreeder(address)": {
+        "notice": "Remove an address from the breeder list. "
+      }
+    }
+  }
+}
