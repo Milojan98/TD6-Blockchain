@@ -1,6 +1,9 @@
 # TD6-Blockchain
 
 
+In all contracts functions are public and there is no Ownable contract so that they can be called and tested by anyone.
+
+
 # Contracts:
 
 - ERC721 -> ERC721 token contract.
